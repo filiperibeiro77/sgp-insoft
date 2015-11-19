@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  root  'welcome#home'
+
+
+  get "home/logout"
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'get'
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/welcome/about',   to: 'welcome#about',   via: 'get'
+  match '/rpg',     to: 'rpg#index', via: 'get'
+  match '/rpg/index', to: 'rpg#show', via: 'get'
+  match '/index', to: 'welcome#index', via: 'get'
+
+  # root :to => redirect('/welcome')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

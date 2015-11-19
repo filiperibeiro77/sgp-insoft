@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="http://railsgirls.com/assets/bootstrap.css">
+
+
+<br />
+
+<div>
+<html>
+<head><center>
+</head>
+</div>
+</center>
+<center><h1> SGP - Sistema Gerenciador de Processos </h1></center>
+
+  <%= link_to "Novo? Registre-se!", "signup" %>
+  <%= link_to "Logar", "signin" %>
+
+
+
+
+</html>
