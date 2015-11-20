@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Processo</th>
       <th>Nome da Atividade</th>
       <th>Responsável pela Atividade</th>
       <th>Deadline</th>
@@ -12,8 +13,9 @@
 
   <tbody>
     <% @activity_processes.each do |activity_process| %>
+      <% @process = SelectiveProcess.find(activity_process.SelectiveProcess_id) %>
       <tr>
-        <td><%= activity_process.SelectiveProcess %></td>
+        <td><%= @process.name_process %></td>
         <td><%= activity_process.name_activity %></td>
         <td><%= activity_process.responsible_activity %></td>
         <td><%= activity_process.deadline_activity %></td>

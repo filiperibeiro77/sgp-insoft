@@ -20,6 +20,10 @@
     <%= f.text_field :responsible_activity %>
   </div>
   <div class="field">
+    <%= f.label :processo_da_atividade %><br>
+    <%= f.collection_select :SelectiveProcess_id, SelectiveProcess.all, :id, :name_process, :prompt => true %><br>
+  </div> 
+  <div class="field">
     <%= f.label :deadline %><br>
     <%= f.date_select :deadline_activity %>
   </div>

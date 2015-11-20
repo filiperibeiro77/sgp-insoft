@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Processo:</strong>
+  <%=@process.name_process%>
+</p>
+
+<p>
   <strong>Nome Atividade:</strong>
   <%= @activity_process.name_activity %>
 </p>
@@ -14,6 +19,8 @@
   <strong>Deadline:</strong>
   <%= @activity_process.deadline_activity %>
 </p>
+
+
 
 <%= link_to 'Editar', edit_activity_process_path(@activity_process) %> |
 <%= link_to 'Voltar', activity_processes_path %>
