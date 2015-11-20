@@ -20,13 +20,20 @@
         <td><%= activity_process.responsible_activity %></td>
         <td><%= activity_process.deadline_activity %></td>
         <td><%= link_to 'Ver', activity_process %></td>
-        <td><%= link_to 'Editar', edit_activity_process_path(activity_process) %></td>
-        <td><%= link_to 'Excluir', activity_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.is_admin %>
+          <td><%= link_to 'Editar', edit_activity_process_path(activity_process) %></td>
+          <td><%= link_to 'Excluir', activity_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <% #Do nothing %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Nova Atividade', new_activity_process_path %>
+<% if current_user.is_admin %>
+  <%= link_to 'Nova Atividade', new_activity_process_path %>
+<% else %>
+  <% # do nothing %>
+<% end %>

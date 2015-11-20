@@ -23,5 +23,9 @@
 	<% end %>
 </p>
 
-<%= link_to 'Editar', edit_selective_process_path(@selective_process) %> |
+<% if current_user.is_admin %>
+  <%= link_to 'Editar', edit_selective_process_path(@selective_process) %> |
+<% else %>
+  <% # do nothing %>
+<% end %>
 <%= link_to 'Voltar', selective_processes_path %>

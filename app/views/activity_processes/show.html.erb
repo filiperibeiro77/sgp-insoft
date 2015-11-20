@@ -21,6 +21,9 @@
 </p>
 
 
-
-<%= link_to 'Editar', edit_activity_process_path(@activity_process) %> |
-<%= link_to 'Voltar', activity_processes_path %>
+<% if current_user.is_admin %>
+	<%= link_to 'Editar', edit_activity_process_path(@activity_process) %> |
+<% else %>
+	<% # do noting %>
+<% end %>
+<%= link_to 'Voltar', @process %>
