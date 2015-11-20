@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120003431) do
+ActiveRecord::Schema.define(version: 20151120192713) do
 
   create_table "activity_processes", force: :cascade do |t|
     t.integer  "SelectiveProcess_id"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20151120003431) do
   end
 
   add_index "activity_processes", ["SelectiveProcess_id"], name: "index_activity_processes_on_SelectiveProcess_id"
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "ActivityProcess_id"
+    t.integer  "User_id"
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "feedbacks", ["ActivityProcess_id"], name: "index_feedbacks_on_ActivityProcess_id"
+  add_index "feedbacks", ["User_id"], name: "index_feedbacks_on_User_id"
 
   create_table "selective_processes", force: :cascade do |t|
     t.string   "name_process"

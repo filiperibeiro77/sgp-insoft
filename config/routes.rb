@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
+  resources :feedbacks
   resources :activity_processes
-
   resources :selective_processes
-
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  
   root  'welcome#home'
-
 
   get "home/logout"
   match '/signup',  to: 'users#new',            via: 'get'
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
   get '/atividades', to: 'activity_processes#index'
   get '/atividades/criar', to: 'activity_processes#new'
   get '/atividades/:id', to: 'activity_processes#show'
+
 
   # root :to => redirect('/welcome')
   # The priority is based upon order of creation: first created -> highest priority.
