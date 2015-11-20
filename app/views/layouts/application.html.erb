@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-
+<html>
+<head>
+  <title>SGP - Sistema Gerenciador de Processos</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-<% # <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> %>
-<% # <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> %>
-<% # <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> %>
-
-<html>
+</head>
+<body>
 <div class="navbar navbar-default navbar-static-top" role="navigation">
-	<a class="navbar-brand" href="/">Home</a>
+	<ul class="navbar-nav navbar-left" style="list-style-type: none;">
+		<li><a class="navbar-brand" href="/">Home</a></li>
+	</ul>
+		<ul class="navbar-nav navbar-right" style="list-style-type: none; padding-right:1%">
+		<% if signed_in? == true %>
+			<li style="color:white; padding: 19.5px 1px; font-size: 10px; line-height: 21px;font-weight: 100;">Bem-vindo, <%= current_user.name%></li>
+			<li><%= link_to "Deslogar", "/signout", :class => "navbar-brand"%></li>
+		<% else %>
+			<li><%= link_to "Logar", "signin", :class => "navbar-brand"%></li>
+		<% end %>
+	</ul>
 </div><!--/.nav-collapse -->
 
 <%= yield %>
