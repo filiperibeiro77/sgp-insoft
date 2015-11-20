@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151120003431) do
 
-  create_table "activity_processes", force: true do |t|
+  create_table "activity_processes", force: :cascade do |t|
     t.integer  "SelectiveProcess_id"
     t.string   "name_activity"
     t.string   "responsible_activity"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151120003431) do
 
   add_index "activity_processes", ["SelectiveProcess_id"], name: "index_activity_processes_on_SelectiveProcess_id"
 
-  create_table "selective_processes", force: true do |t|
+  create_table "selective_processes", force: :cascade do |t|
     t.string   "name_process"
     t.string   "responsible"
     t.date     "deadline"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20151120003431) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
