@@ -10,6 +10,9 @@ class SelectiveProcessesController < ApplicationController
   # GET /selective_processes/1
   # GET /selective_processes/1.json
   def show
+    @selective_process = SelectiveProcess.find(params[:id])
+    @responsible = User.find(@selective_process.responsible)
+    @activities = @selective_process.get_activities
   end
 
   # GET /selective_processes/new

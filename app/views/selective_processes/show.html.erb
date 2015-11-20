@@ -7,12 +7,20 @@
 
 <p>
   <strong>Responsável:</strong>
-  <%= @selective_process.responsible %>
+  <%= @responsible.name %>
 </p>
 
 <p>
   <strong>Deadline:</strong>
   <%= @selective_process.deadline %>
+</p>
+
+<p>
+	<strong>Atividades:</strong>
+	<% @activities.each do |activity| %>
+
+	<%= link_to activity.name_activity, activity %>
+	<% end %>
 </p>
 
 <%= link_to 'Editar', edit_selective_process_path(@selective_process) %> |

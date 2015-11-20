@@ -12,9 +12,10 @@
 
   <tbody>
     <% @selective_processes.each do |selective_process| %>
+      <% @responsible = User.find(selective_process.responsible) %>
       <tr>
         <td><%= selective_process.name_process %></td>
-        <td><%= selective_process.responsible %></td>
+        <td><%= @responsible.name %></td>
         <td><%= selective_process.deadline %></td>
         <td><%= link_to 'Ver', selective_process %></td>
         <td><%= link_to 'Editar', edit_selective_process_path(selective_process) %></td>

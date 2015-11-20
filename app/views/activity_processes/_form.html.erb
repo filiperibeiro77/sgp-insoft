@@ -16,8 +16,8 @@
     <%= f.text_field :name_activity %>
   </div>
   <div class="field">
-    <%= f.label :responsavel_pela_atividade %><br>
-    <%= f.text_field :responsible_activity %>
+    <%= f.label :responsavel %><br>
+    <%= f.collection_select :responsible_activity, User.all, :id, :name, :prompt => true %><br>
   </div>
   <div class="field">
     <%= f.label :processo_da_atividade %><br>

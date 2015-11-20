@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :responsavel %><br>
-    <%= f.text_field :responsible %>
+    <%= f.collection_select :responsible, User.all, :id, :name, :prompt => true %><br>
   </div>
   <div class="field">
     <%= f.label :deadline %><br>
