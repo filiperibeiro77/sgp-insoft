@@ -4,9 +4,7 @@
 </head>
 <body>
 	<% if current_user.is_admin %>
-		<p><%= link_to "Criar Processo", "/processos/criar",class: "btn btn-large btn-primary" %></p> 
-		<p><%= link_to "Visualisar Processos", "/processos",class: "btn btn-large btn-primary" %></p> 
-		<p><%= link_to "Criar Atividade", "/atividades/criar",class: "btn btn-large btn-primary" %></p> 
+		<%= render 'admin_home' %>
 	<% else %>
 	<% controller.redirect_to '/processos' %>
 	<% end %>
