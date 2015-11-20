@@ -4658,16 +4658,24 @@ a.thumbnail.active {
 .alert-warning .alert-link {
   color: #e6e6e6;
 }
+
+
 .alert-danger {
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+  opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+  background-color: #CC3333;
+  border-color: #CC3333;
   color: #ffffff;
+  font-weight: 100;
+  padding-right: 2%;
 }
+
+
 .alert-danger hr {
-  border-top-color: #e43725;
+  border-top-color: #CC3333;
 }
 .alert-danger .alert-link {
-  color: #e6e6e6;
+  color: #CC3333;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {
