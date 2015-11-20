@@ -3,6 +3,13 @@
 <head>
 </head>
 <body>
+	<% if current_user.is_admin %>
+		<p><%= link_to "Criar Processo", "/processos/criar",class: "btn btn-primary" %></p> 
+		<p><%= link_to "Visualisar Processos", "/processos",class: "btn btn-primary" %></p> 
+		<p><%= link_to "Criar Atividade", "/atividades/criar",class: "btn btn-primary" %></p> 
+	<% else %>
+	<% controller.redirect_to '/processos' %>
+	<% end %>
 </body>
 </center>
 </html>

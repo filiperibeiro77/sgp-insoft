@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   match '/index', to: 'welcome#index', via: 'get'
 
   get '/processos', to: 'selective_processes#index'
+  get '/processos/criar', to: 'selective_processes#new'
   get '/atividades', to: 'activity_processes#index'
+  get '/atividades/criar', to: 'activity_processes#new'
 
   # root :to => redirect('/welcome')
   # The priority is based upon order of creation: first created -> highest priority.

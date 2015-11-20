@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 20151120003431) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.string "remember_token"
+    t.string  "name"
+    t.string  "email"
+    t.boolean "is_admin"
+    t.string  "password_digest"
+    t.string  "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
