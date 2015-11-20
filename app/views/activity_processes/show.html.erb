@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome Atividade:</strong>
+  <%= @activity_process.name_activity %>
+</p>
+
+<p>
+  <strong>Responsável pela Atividade:</strong>
+  <%= @activity_process.responsible_activity %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @activity_process.deadline_activity %>
+</p>
+
+<%= link_to 'Editar', edit_activity_process_path(@activity_process) %> |
+<%= link_to 'Voltar', activity_processes_path %>

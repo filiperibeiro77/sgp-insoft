@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome do processo:</strong>
+  <%= @selective_process.name_process %>
+</p>
+
+<p>
+  <strong>Responsável:</strong>
+  <%= @selective_process.responsible %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @selective_process.deadline %>
+</p>
+
+<%= link_to 'Editar', edit_selective_process_path(@selective_process) %> |
+<%= link_to 'Voltar', selective_processes_path %>

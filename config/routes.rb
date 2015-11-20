@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :activity_processes
+
+  resources :selective_processes
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   root  'welcome#home'
@@ -13,6 +17,9 @@ Rails.application.routes.draw do
   match '/rpg',     to: 'rpg#index', via: 'get'
   match '/rpg/index', to: 'rpg#show', via: 'get'
   match '/index', to: 'welcome#index', via: 'get'
+
+  get '/processos', to: 'selective_processes#index'
+  get '/atividades', to: 'activity_processes#index'
 
   # root :to => redirect('/welcome')
   # The priority is based upon order of creation: first created -> highest priority.
