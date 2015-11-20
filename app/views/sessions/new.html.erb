@@ -1,23 +1,24 @@
-<% provide(:title, "Logar") %>
 
-<h2>
-<div class="row">
-  <div class="span6 offset3">
+<html>
+<head>
+</head>
+<body >
+
+<div class="container" >
+  <div class="row" style="padding-top:14%;">
+  <div class="jumbotron" >
+    <center>
     <%= form_for(:session, url: sessions_path) do |f| %>
       <%= f.label :email, "E-Mail" %>
       <%= f.text_field :email %>
-</br>
+    </br>
       <%= f.label :password, "Senha" %> 
       <%= f.password_field :password %> 
-
     </br>
       <%= f.submit "Logar", class: "btn btn-large btn-primary" %>
     <% end %>
-  
-</br>
-</h2>
-<h3>
-    <p>Novo usuário? <%= link_to "Registre-se!", signup_path %></p></h3>
+  </center>
   </div>
 </div>
-</center>
+</body>
+</html>
