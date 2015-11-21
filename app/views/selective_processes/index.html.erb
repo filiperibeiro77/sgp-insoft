@@ -1,32 +1,45 @@
-<h1>Lista de Processos</h1>
+<div class="container">
+  <center>
+    <div class="jumbotron">
+    
+     <div class ="row">
+      <h1>Lista de Processos</h1>
+      </div>
+    </div>
+    </center>
+  </div>
+    <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome do processo</th>
+              <th>Responsável</th>
+              <th>Deadline</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome do processo</th>
-      <th>Responsável</th>
-      <th>Deadline</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @selective_processes.each do |selective_process| %>
-      <% @responsible = User.find(selective_process.responsible) %>
-      <tr>
-        <td><%= selective_process.name_process %></td>
-        <td><%= @responsible.name %></td>
-        <td><%= selective_process.deadline %></td>
-        <td><%= link_to 'Ver', selective_process %></td>
-        <% if current_user.is_admin %>
-          <td><%= link_to 'Editar', edit_selective_process_path(selective_process) %></td>
-          <td><%= link_to 'Excluir', selective_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% else %>
-          <% # do nothing %>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @selective_processes.each do |selective_process| %>
+              <% @responsible = User.find(selective_process.responsible) %>
+              <tr>
+                <td><%= selective_process.name_process %></td>
+                <td><%= @responsible.name %></td>
+                <td><%= selective_process.deadline %></td>
+                <td><%= link_to 'Ver', selective_process, class: "btn btn-info btn-xs", style: "color:white; text-decoration:none;" %></td>
+                <% if current_user.is_admin %>
+                  <td><%= link_to 'Editar', edit_selective_process_path(selective_process),class: "btn btn-warning btn-xs", style: "color:white; text-decoration:none;"%></td>
+                  <td><%= link_to 'Excluir', selective_process, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs", style: "color:white; text-decoration:none;" %></td>
+                <% else %>
+                  <% # do nothing %>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  </div>
 
 <br>

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="container">
   <div class="field">
     <%= f.label :nome_do_processo %><br>
     <%= f.text_field :name_process %>
@@ -24,6 +24,8 @@
     <%= f.date_select :deadline %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :"Criar Processo", class: "btn btn-success btn-md", style: "color:white;  float: left"%>
   </div>
 <% end %>
+<%= link_to 'Voltar', root_path, class: "btn btn-warning btn-md", style: "color:white; margin-left:1%;" %>
+</div>

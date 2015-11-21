@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root  'welcome#home'
 
   get "home/logout"
-  match '/signup',  to: 'users#new',            via: 'get'
+  get '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
