@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many  :feedback
 
   before_create :create_remember_token
 	before_save { self.email = email.downcase }

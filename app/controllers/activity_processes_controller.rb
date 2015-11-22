@@ -12,6 +12,7 @@ class ActivityProcessesController < ApplicationController
   def show
     @activity_process = ActivityProcess.find(params[:id])
     @process = SelectiveProcess.find(@activity_process.SelectiveProcess_id)
+    @feedbacks = Feedback.all
 
   end
 

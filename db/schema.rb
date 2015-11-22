@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151120192713) do
     t.integer  "SelectiveProcess_id"
     t.string   "name_activity"
     t.string   "responsible_activity"
-    t.text     "descricao_activity"
+    t.text     "description_activity"
     t.date     "deadline_activity"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151120192713) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.integer  "ActivityProcess_id"
-    t.string   "autor"
+    t.string   "author"
     t.string   "subject"
     t.text     "content"
     t.datetime "created_at",         null: false

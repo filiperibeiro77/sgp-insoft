@@ -1,33 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Processo:</strong>
-  <%=@process.name_process%>
-</p>
+<div class="container">
+  
+    <div class="jumbotron">
+    
+     <div class ="row">
+      <center>
 
-<p>
-  <strong>Nome Atividade:</strong>
-  <%= @activity_process.name_activity %>
-</p>
+        <h1><%= @activity_process.name_activity %></h1  >
+          <p>
+            <strong>Processo:</strong>
+            <%=@process.name_process%>
+          </p>
 
-<p>
-  <strong>Responsável pela Atividade:</strong>
-  <%= @activity_process.responsible_activity %>
-</p>
+  <p><%= @activity_process.description_activity %></p>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @activity_process.deadline_activity %>
-</p>
+            <p>
+              <% @responsible_actvity = User.find(@activity_process.responsible_activity) %>
+              <strong>Responsável pela Atividade:</strong>
+              <%= @responsible_actvity.name %>
+            </p>
 
+            <p>
+              <strong>Deadline:</strong>
+              <%= @activity_process.deadline_activity %>
+            </p>
+            </center>
+          </div>
+         </div>
 
-<% if current_user.is_admin %>
-	<%= link_to 'Editar', edit_activity_process_path(@activity_process) %> |
-<% else %>
-	<% # do noting %>
+<div = "row">
+  
+</div>
+<%= render 'form_feedback' %>
+
+<% @feedbacks.each do |feedback| %>
+ <div class="panel panel-primary">
+      <div class="panel-heading"><strong><%= feedback.author%>: </strong><%= feedback.subject%></div>
+      <div class="panel-body"><%= feedback.content %></div>
+  </div>
+
 <% end %>
-
 <%= link_to 'Criar comentario', new_feedback_path %> 
 <%= link_to 'Ver comentários', feedbacks_path %>
 
 <%= link_to 'Voltar', @process %>
+</div>

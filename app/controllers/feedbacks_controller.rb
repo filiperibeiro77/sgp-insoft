@@ -25,7 +25,7 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @feedback = Feedback.new(feedback_params)
-
+    @feedback.author = current_user.name
     respond_to do |format|
       if @feedback.save
         format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
