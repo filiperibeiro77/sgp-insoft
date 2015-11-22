@@ -7,17 +7,15 @@
      <div class ="row">
       <center>
 
-        <h1><%= @activity_process.name_activity %></h1  >
+        <h1><%= @activity_process.name_activity %></h1 >
+           </center>
           <p>
             <strong>Processo:</strong>
             <%=@process.name_process%>
           </p>
-
-  <p><%= @activity_process.description_activity %></p>
-
             <p>
               <% @responsible_actvity = User.find(@activity_process.responsible_activity) %>
-              <strong>Responsável pela Atividade:</strong>
+              <strong>Responsável:</strong>
               <%= @responsible_actvity.name %>
             </p>
 
@@ -25,24 +23,35 @@
               <strong>Deadline:</strong>
               <%= @activity_process.deadline_activity %>
             </p>
-            </center>
+            <p>
+            <strong>Descrição:</strong>
+            <p><%= @activity_process.description_activity %></p>
+          </p>
           </div>
          </div>
 
 <div = "row">
+<center>
+  <h3>Comentários</h3>
   
-</div>
-<%= render 'form_feedback' %>
-
 <% @feedbacks.each do |feedback| %>
+</center>
  <div class="panel panel-primary">
-      <div class="panel-heading"><strong><%= feedback.author%>: </strong><%= feedback.subject%></div>
+
+      <div class="panel-heading"><strong><center><%= feedback.author%>: </strong><%= feedback.subject%></center></div>
+      
       <div class="panel-body"><%= feedback.content %></div>
   </div>
 
 <% end %>
-<%= link_to 'Criar comentario', new_feedback_path %> 
-<%= link_to 'Ver comentários', feedbacks_path %>
+</center>
+<h3>Comentar</h3>
+<%= render 'form_feedback' %>
+<%= link_to 'Voltar', "/selective_processes/#{@activity_process.SelectiveProcess_id}", class: "btn btn-warning btn-md", style: "color:white;" %>
 
-<%= link_to 'Voltar', @process %>
 </div>
+</div>
+
+
+           
+

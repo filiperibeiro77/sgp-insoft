@@ -1,16 +1,21 @@
 <%= form_for Feedback.new do |f| %>
 
   <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
+    <%= f.text_field :subject, :value => "Assunto"%>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :value => "Comentário..."%>
+  </div>
+
+  <div class="field" style = "display:none;">
+    <%= f.label :Atividade %><br>
+    <%= f.text_field :ActivityProcess_id, :value => @activity_process.id %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :"Enviar", class: "btn btn-success btn-md", style: "color:white; float:left; margin-top:0.9%;margin-right:1%;"%>
   </div>
+
+
 
 <% end %>

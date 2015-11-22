@@ -12,7 +12,8 @@ class ActivityProcessesController < ApplicationController
   def show
     @activity_process = ActivityProcess.find(params[:id])
     @process = SelectiveProcess.find(@activity_process.SelectiveProcess_id)
-    @feedbacks = Feedback.all
+    @feedback = Feedback.new
+    @feedbacks = Feedback.where(["ActivityProcess_id = ? ", @activity_process.id])
 
   end
 
@@ -32,7 +33,7 @@ class ActivityProcessesController < ApplicationController
 
     respond_to do |format|
       if @activity_process.save
-        format.html { redirect_to @activity_process, notice: 'Activity process was successfully created.' }
+        format.html { redirect_to @activity_process, notice: 'Atividade criada com sucesso.' }
         format.json { render :show, status: :created, location: @activity_process }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class ActivityProcessesController < ApplicationController
   def update
     respond_to do |format|
       if @activity_process.update(activity_process_params)
-        format.html { redirect_to @activity_process, notice: 'Activity process was successfully updated.' }
+        format.html { redirect_to @activity_process, notice: 'Atividade atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @activity_process }
       else
         format.html { render :edit }
@@ -60,7 +61,7 @@ class ActivityProcessesController < ApplicationController
   def destroy
     @activity_process.destroy
     respond_to do |format|
-      format.html { redirect_to activity_processes_url, notice: 'Activity process was successfully destroyed.' }
+      format.html { redirect_to activity_processes_url, notice: 'Atividade excluída com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +74,6 @@ class ActivityProcessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_process_params
-      params.require(:activity_process).permit(:SelectiveProcess_id, :name_activity, :responsible_activity, :deadline_activity)
+      params.require(:activity_process).permit(:SelectiveProcess_id, :name_activity, :responsible_activity, :description_activity, :deadline_activity)
     end
 end

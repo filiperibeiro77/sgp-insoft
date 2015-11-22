@@ -28,7 +28,7 @@ class FeedbacksController < ApplicationController
     @feedback.author = current_user.name
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
+        format.html { redirect_to "/activity_processes/#{@feedback.ActivityProcess_id}", notice: '' }
         format.json { render :show, status: :created, location: @feedback }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class FeedbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params.require(:feedback).permit(:subject, :content)
+      params.require(:feedback).permit(:subject, :content, :ActivityProcess_id)
     end
 end

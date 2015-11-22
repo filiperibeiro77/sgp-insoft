@@ -8,15 +8,14 @@ Rails.application.routes.draw do
   root  'welcome#home'
 
   get "home/logout"
-  get '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'get'
-  match '/signup',  to: 'users#new',            via: 'get'
   match '/welcome/about',   to: 'welcome#about',   via: 'get'
   match '/rpg',     to: 'rpg#index', via: 'get'
   match '/rpg/index', to: 'rpg#show', via: 'get'
   match '/index', to: 'welcome#index', via: 'get'
 
+  get '/signup',  to: 'users#new'
   get '/processos', to: 'selective_processes#index'
   get '/processos/criar', to: 'selective_processes#new'
   get '/atividades', to: 'activity_processes#index'

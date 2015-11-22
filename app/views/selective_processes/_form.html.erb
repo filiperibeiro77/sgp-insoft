@@ -1,15 +1,17 @@
 <%= form_for(@selective_process) do |f| %>
+  <div class="container">
   <% if @selective_process.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@selective_process.errors.count, "error") %> prohibited this selective_process from being saved:</h2>
+      <h2><%= pluralize(@selective_process.errors.count, "Erro") %> Processo não pode ser criado:</h2>
 
       <ul>
-      <% @selective_process.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @selective_process.errors.each do |attr,msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+</div>
   <div class="container">
   <div class="field">
     <%= f.label :nome_do_processo %><br>
@@ -17,7 +19,7 @@
   </div>
   <div class="field">
     <%= f.label :responsavel %><br>
-    <%= f.collection_select :responsible, User.all, :id, :name, :prompt => true %><br>
+    <%= f.collection_select :responsible, User.all, :id, :name, :prompt => "Selecione um responsável" %><br>
   </div>
   <div class="field">
     <%= f.label :deadline %><br>

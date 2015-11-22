@@ -21,8 +21,8 @@
         <td><%= activity_process.deadline_activity %></td>
         <td><%= link_to 'Ver', activity_process %></td>
         <% if current_user.is_admin %>
-          <td><%= link_to 'Editar', edit_activity_process_path(activity_process) %></td>
-          <td><%= link_to 'Excluir', activity_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <!-- <td><%= link_to 'Editar', edit_activity_process_path(activity_process) %></td>-->
+          <td><%= link_to 'Excluir', activity_process, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa atividade?' } %></td>
         <% else %>
           <% #Do nothing %>
         <% end %>

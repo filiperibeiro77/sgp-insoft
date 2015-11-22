@@ -1,15 +1,17 @@
 <%= form_for(@activity_process) do |f| %>
+  <div class="container">
   <% if @activity_process.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@activity_process.errors.count, "error") %> prohibited this activity_process from being saved:</h2>
+      <h2><%= pluralize(@activity_process.errors.count, "Erro") %> Atividade não pode ser criada:</h2>
 
       <ul>
-      <% @activity_process.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @activity_process.errors.each do |attr,msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+</div>
   <div class="container">
   <div class="field">
     <%= f.label :nome_da_atividade %><br>
@@ -17,11 +19,11 @@
   </div>
   <div class="field">
     <%= f.label :processo_da_atividade %><br>
-    <%= f.collection_select :SelectiveProcess_id, SelectiveProcess.all, :id, :name_process, :prompt => true %><br>
+    <%= f.collection_select :SelectiveProcess_id, SelectiveProcess.all, :id, :name_process, :prompt => "Selecione um Processo" %><br>
   </div> 
   <div class="field">
     <%= f.label :responsavel %><br>
-    <%= f.collection_select :responsible_activity, User.all, :id, :name, :prompt => true %><br>
+    <%= f.collection_select :responsible_activity, User.all, :id, :name, :prompt => "Selecione um responsável" %><br>
   </div>
   <div class="field">
     <%= f.label :descrição %><br>
