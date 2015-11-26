@@ -42,7 +42,11 @@
                 <td><%= activity.name_activity %></td>
                 <td><%= @responsible_actvity.name %></td>
                 <td><%= activity.deadline_activity %></td>
-                <td><%= link_to 'Ver', activity, class: "btn btn-info btn-xs", style: "color:white; text-decoration:none;" %></td>
+                <% if current_user.is_admin %>
+                  <td><%= link_to 'Editar', edit_activity_process_path(activity),class: "btn btn-warning btn-xs", style: "color:white; text-decoration:none;"%>
+                <% else %>
+                  <% # do nothing %>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

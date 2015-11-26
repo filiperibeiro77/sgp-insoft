@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= link_to "Cadastrar Funcionário", "/signup" %>
 <div class="container" style="padding-top:13%;">
 	<center>
 	<div class="jumbotron" style="width:50%;">
@@ -6,17 +7,20 @@
 	<div class ="row" >
 
 	
-  
-		<%= link_to "Criar Processo", "/processos/criar",class: "btn btn-info btn-lg", style: "color:white"%>
+  		<%= link_to "Criar Processo", "/processos/criar",class: "btn btn-info btn-lg", style: "color:white"%>
 
-		<%= link_to "Visualisar Processos", "/processos",class: "btn btn-success btn-lg", style: "color:white" %>
+  		<%= link_to "Visualisar Processos", "/processos",class: "btn btn-success btn-lg", style: "color:white" %>
+
+  		
+		
 	</div>
 </br>
 	<div class ="row" data-no-turbolink>
 
-		<%= link_to "Cadastrar Funcionário", "/signup",class: "btn btn-danger btn-lg", style: "color:white" %>
+		
+		<%= link_to "Editar Processo", "/processos/editar",class: "btn btn-warning btn-lg", style: "color:white" %>
 
-		<%= link_to "Criar Atividade", "/atividades/criar",class: "btn btn-warning btn-lg", style: "color:white" %>
+		<%= link_to "Excluir Processo", "/processos/excluir",class: "btn btn-danger btn-lg", style: "color:white" %>
 
 
 	</div>

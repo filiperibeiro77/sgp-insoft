@@ -7,9 +7,29 @@ class SelectiveProcessesController < ApplicationController
     @selective_processes = SelectiveProcess.all
   end
 
+  def index_edit
+    @selective_processes = SelectiveProcess.all
+  end
+
+  def index_delete
+    @selective_processes = SelectiveProcess.all
+  end
+
   # GET /selective_processes/1
   # GET /selective_processes/1.json
   def show
+    @selective_process = SelectiveProcess.find(params[:id])
+    @responsible = User.find(@selective_process.responsible)
+    @activities = @selective_process.get_activities
+  end
+
+  def show_edit
+    @selective_process = SelectiveProcess.find(params[:id])
+    @responsible = User.find(@selective_process.responsible)
+    @activities = @selective_process.get_activities
+  end
+
+  def show_delete
     @selective_process = SelectiveProcess.find(params[:id])
     @responsible = User.find(@selective_process.responsible)
     @activities = @selective_process.get_activities
@@ -22,6 +42,7 @@ class SelectiveProcessesController < ApplicationController
 
   # GET /selective_processes/1/edit
   def edit
+    @selective_process = SelectiveProcess.find(params[:id])
   end
 
   # POST /selective_processes
@@ -59,7 +80,7 @@ class SelectiveProcessesController < ApplicationController
   def destroy
     @selective_process.destroy
     respond_to do |format|
-      format.html { redirect_to selective_processes_url, notice: 'Prcoesso deletado com sucesso.' }
+      format.html { redirect_to root_path, notice: 'Prcoesso deletado com sucesso.' }
       format.json { head :no_content }
     end
   end

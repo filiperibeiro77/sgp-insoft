@@ -19,8 +19,12 @@
   </div>
   <div class="field">
     <%= f.label :processo_da_atividade %><br>
-    <%= f.collection_select :SelectiveProcess_id, SelectiveProcess.all, :id, :name_process, :prompt => "Selecione um Processo" %><br>
+    <%= "#{@selective_process.name_process}" %><br>
   </div> 
+  <div class="field" style = "display:none;">
+    <%= f.label :processo_da_atividade %><br>
+    <%= f.text_field :SelectiveProcess_id, :value => @selective_process.id %>
+  </div>
   <div class="field">
     <%= f.label :responsavel %><br>
     <%= f.collection_select :responsible_activity, User.all, :id, :name, :prompt => "Selecione um responsável" %><br>

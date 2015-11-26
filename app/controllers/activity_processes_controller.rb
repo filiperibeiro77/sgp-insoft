@@ -20,6 +20,12 @@ class ActivityProcessesController < ApplicationController
   # GET /activity_processes/new
   def new
     @activity_process = ActivityProcess.new
+   
+  end
+
+  def new_process_defined
+     @activity_process = ActivityProcess.new
+     @selective_process = SelectiveProcess.find(params[:id])
   end
 
   # GET /activity_processes/1/edit
@@ -61,7 +67,7 @@ class ActivityProcessesController < ApplicationController
   def destroy
     @activity_process.destroy
     respond_to do |format|
-      format.html { redirect_to activity_processes_url, notice: 'Atividade excluída com sucesso.' }
+      format.html { redirect_to root_path, notice: 'Atividade excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

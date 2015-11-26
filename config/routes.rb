@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   
   root  'welcome#home'
 
+
+
   get "home/logout"
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'get'
@@ -14,10 +16,15 @@ Rails.application.routes.draw do
   match '/rpg',     to: 'rpg#index', via: 'get'
   match '/rpg/index', to: 'rpg#show', via: 'get'
   match '/index', to: 'welcome#index', via: 'get'
+  match '/atividades/criar/:id' => 'activity_processes#new_process_defined', :as => :atividade_criar, :via => :get
 
   get '/signup',  to: 'users#new'
   get '/processos', to: 'selective_processes#index'
+  get '/processos/show/editar/:id', to: 'selective_processes#show_edit'
+  get '/processos/show/excluir/:id', to: 'selective_processes#show_delete'
   get '/processos/criar', to: 'selective_processes#new'
+  get "/processos/editar", to: 'selective_processes#index_edit'
+  get "/processos/excluir", to: 'selective_processes#index_delete'
   get '/atividades', to: 'activity_processes#index'
   get '/atividades/criar', to: 'activity_processes#new'
   get '/atividades/:id', to: 'activity_processes#show'

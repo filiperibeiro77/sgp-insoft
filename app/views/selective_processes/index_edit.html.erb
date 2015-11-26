@@ -26,8 +26,8 @@
                 <td><%= selective_process.name_process %></td>
                 <td><%= @responsible.name %></td>
                 <td><%= selective_process.deadline %></td>
-                <td><%= link_to 'Ver', selective_process, class: "btn btn-info btn-xs", style: "color:white; text-decoration:none;" %></td>
-                <% if current_user.is_admin %>    
+                <% if current_user.is_admin %>
+                  <td><%= link_to 'Editar', edit_selective_process_path(selective_process),class: "btn btn-warning btn-xs", style: "color:white; text-decoration:none;"%></td>
                 <% else %>
                   <% # do nothing %>
                 <% end %>

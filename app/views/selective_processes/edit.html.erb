@@ -1,6 +1,23 @@
-<h1>Editar Processo</h1>
+<div class="container">
+  <center>
+    <div class="jumbotron">
+    
+     <div class ="row">
+	<h1>Editar Processo</h1>
+	</div>
+</div>
+</center>
+<div class ="row">
+<div class="container">
 
+	<%= link_to "Criar Atividade", atividade_criar_path(@selective_process),class: "btn btn-success btn-sm", style: "color:white" %>
+
+	<%= link_to "Editar Atividade", "/processos/show/editar/#{@selective_process.id}" ,class: "btn btn-warning btn-sm", style: "color:white" %>
+
+	<%= link_to "Excluir Atividade", "/processos/show/excluir/#{@selective_process.id}",class: "btn btn-danger btn-sm", style: "color:white" %>
+</br>
+</br>
+</div>
 <%= render 'form' %>
 
-<%= link_to 'Ver', @selective_process %> |
-<%= link_to 'Voltar', selective_processes_path %>
+</div>
