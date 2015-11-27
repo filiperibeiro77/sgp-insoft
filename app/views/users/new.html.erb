@@ -39,15 +39,19 @@
       </div>
       <div class="field">
       <%= f.label :departamento %><br>
-      <%= f.text_field :departament %><br>
+      <%= f.select :departament, ['Efetivo','Diretor de gestão de pessoas','Diretor administrativo','Diretor de negócio','Diretor de desenvolvimento','Diretor de TI','Diretor de Marketing','Diretor Institucional','Diretor Organizacional','Diretor Financeiro','Vice-diretor de gestão de pessoas','Vice-diretor administrativo','Vice-diretor de negócio','Vice-diretor de desenvolvimento','Vice-diretor de TI
+','Vice-diretor de Marketing','Vice-diretor Institucional','Vice-diretor Organizacional','Vice-diretor Financeiro']%>
       </div>
       <div class="field">
       <%= f.label :endereço %><br>
       <%= f.text_field :adress %><br>
       </div>
       <div class="field">
-      <%= f.label :Sexo %><br>
-      <%= f.text_field :gender %><br>
+      <%= f.label :sexo %><br>
+      <%= radio_button_tag(:gender, "male") %>
+      <%= label_tag(:gender, "Masculino") %>
+      <%= radio_button_tag(:gender, "female") %>
+      <%= label_tag(:gender, "Feminino") %>
       </div>
       ____________________________
       <p>Login</p>

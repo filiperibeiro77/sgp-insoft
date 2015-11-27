@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :name, :message => "Nome não pode ficar em branco"
  	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates_uniqueness_of :email, case_sensitive:false, :message => "E-mail já cadastrado no sistema"
+    validates_uniqueness_of :cpf, case_sensitive:false, :message => "CPF já cadastrado no sistema"
   	validates_presence_of :email, :message => "E-mail não pode ficar em branco"
     validates_format_of :email, with: VALID_EMAIL_REGEX, :message => "Entre com um formato válido de e-mail"
   	has_secure_password validations: false
